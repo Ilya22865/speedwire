@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPEEDWIRE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="adaptiv.css">
+    <style>
+        .sec-main {
+            font-size: small;
+        }
+        .load-more {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 50%;
+        }
+    </style>
+</head>
+<body class="background" background="субарик.jpg">
+    <header class="header">
+
+        <h1 class="logo">SPEEDWIRE RATING</h1>
+        <section class="hambrg">
+            <div class="hamburger" id="hamburger">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </section>
+
+        <nav class="nav-menu" id="navMenu">
+            <div class="nav-container">
+                <a href="index.html">Главная</a>
+            </div>
+        </nav>
+    
+    </header>
+    
+    <section class="comments-section">
+        <h2>Оставить отзыв о своем автомобиле</h2>
+        <form action="" id="comment-form">   
+            <div class="form-group">
+                <label for="comment-car">Модель автомобиля:</label>
+                <input type="text" id="comment-car" required placeholder="Например: SUBARU WRX STI">
+            </div>
+            <div class="form-group">
+                <label for="comment-name">Ваше имя или ник:</label>
+                <input type="text" id="comment-name" required placeholder="Георгий">
+            </div>
+            <div class="form-group">
+                <label for="comment-text">Ваш отзыв:</label>
+                <textarea id="comment-text" rows="4" required placeholder="Поделитесь впечатлениями..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Опубликовать отзыв</button>
+        </form>
+        
+        <div class="comments-list" id="comments-list">
+            <h3>Последние отзывы</h3>
+        </div>
+        
+    </section>
+
+    <section class="sec-main2">
+        <div class="btnimg" id="btnimg">
+            <a href="gocha.html" class="btn-img"><img src="07(2).jpg" alt="Отзывы"></a>
+            <a href="gochaxarakt.html" class="btn-img"><img src="характеристики.jpg" alt="Характеристики"></a>
+            <a href="news.html" class="btn-img"><img src="a1665a907f5849ce9269ab7f06e70984.jpg" alt="Новости"></a>
+                
+            <a href="gocha.html" class="btn-text">Отзывы о гоночных автомобилях</a>
+            <a href="gochaxarakt.html" class="btn-text">Характеристики автомобилей</a>
+            <a href="news.html" class="btn-text">Последние новости</a>
+        </div>
+</section>
+        <section class="footer">
+            <footer>
+                <footer>
+                    <div class="footer">    
+                    <div class="row">
+                    <ul>
+                    <li><a href="">Telegram</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    </div>
+                    
+                    <div class="row">
+                    INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh 
+                    </div>
+                    </div>
+                    </footer>
+        </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                
+                
+                if (navMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+            
+          
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        });
+
+   </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./reviews.js"></script>
+</body>
+</html>
