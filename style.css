@@ -68,8 +68,8 @@ body {
 .nav-menu a {
   align-items: center;
   display: block;
-  color: #8a8a8a;
-  background-color: #383838;
+  color: #b1b1b1;
+  background-color: #272727;
   padding: 5px 15px;
   border-radius: 5px;
   text-decoration: none;
@@ -86,8 +86,7 @@ body {
   gap: 20px;
 }
 .nav-menu a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px #3b3b3b;
+    box-shadow: 0 0px 30px 0 #a3a3a3;
 }
  
 .btnimg {
@@ -113,7 +112,7 @@ body {
   }
   
   .sec-main {
-    color: #3a9e00;
+    color: #b1b1b1;
     padding: 65px;
     font-size: x-large;
     
@@ -153,18 +152,22 @@ body {
     width:100%;
     margin:1% 0%;
     padding:0.6% 0%;
-    color:gray;
+    color:#65cf02;
     font-size:0.8em;
     }
     
     .footer .row a{
     text-decoration:none;
-    color:gray;
+    color:#ffffff;
     transition:0.5s;
+    background-color: #424242;
+    padding: 10px;
+    border-radius: 5px;
     }
     
     .footer .row a:hover{
-    color:#fff;
+    color:#ffffff;
+    box-shadow: 0 0px 30px 0 #a3a3a3;
     }
     
     .footer .row ul{
@@ -258,20 +261,6 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-}
-
-.delete-btn {
-  background: none;
-  border: none;
-  color: #ff3333;
-  font-size: 1.5em;
-  cursor: pointer;
-  padding: 0 5px;
-  line-height: 1;
-}
-
-.delete-btn:hover {
-  color: #ff6666;
 }
 
 .comment-author {
