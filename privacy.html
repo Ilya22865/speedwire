@@ -9,19 +9,50 @@
     <title>SPEEDWIRE</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="adaptiv.css">
-</head>
-<body class="background" background="субарик.jpg">
-    <header class="header">
-        
-        <h1 class="logo">SPEEDWIRE RATING</h1>
-
-        
-    </header>
-    <section class="sec-main">
-       
-    </section>
-
-
+    <link rel="stylesheet" href="form.css">
     
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="main-content">
+        <header class="header">
+        
+            <h1 class="logo">SPEEDWIRE RATING</h1>
+            <section class="hambrg">
+                <div class="hamburger" id="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </section>
+            
+            <nav class="nav-menu" id="navMenu">
+                <div class="nav-container">
+                    <a href="otzivi.html">Отзывы владельцев</a>
+                    <a href="index.html">Главная</a>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="auth-container">
+            <h2>Вход в аккаунт</h2>
+            <form class="auth-form">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Введите email">
+          
+              <label for="password">Пароль</label>
+              <input type="password" id="password" placeholder="Введите пароль">
+              <button type="submit" class="submit-btn">Войти</button>
+          
+              <div class="auth-alt">
+              
+        
+              </div>
+          
+              <p class="switch-auth">Нет аккаунта? <a href="registrtion.html">Зарегистрироваться</a></p>
+            </form>
+          </div>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+          <script type="module" src="login.js"></script>
 </body>
 </html>
