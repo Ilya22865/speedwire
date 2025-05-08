@@ -350,5 +350,10 @@ body {
   display: block; 
 }
 
-
-
+.messageDiv {
+  background-color: #00000048;
+  color: #98cf00;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+}

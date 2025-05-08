@@ -1,16 +1,7 @@
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-  import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    GoogleAuthProvider,
-    signInWithPopup
-  } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-  import {
-    getFirestore,
-    setDoc,
-    doc
-  } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+  import {getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+  import {getFirestore,setDoc,doc} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyAD16QLkiOdOqej_9kBVWZriInD13AQ_6Q",
@@ -23,50 +14,38 @@
   };
 
   const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
 
-  // Регистрация через email и пароль
-  const registerForm = document.querySelector('.auth-form');
-  if (registerForm) {
-    registerForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const username = document.querySelector('#username').value;
-      const email = document.querySelector('#email').value;
-      const password = document.querySelector('#password').value;
+  function showMessage(message, divId) {
+    var messageDiv=document.getElementById(divId);
+    messageDiv.style.display="block";
+    messageDiv.innerHTML=message;
+    messageDiv.style.opacity=1;
+    setTimeout(function() {
+      messageDiv.style.opacity=0;
+    }, 5000);
+  }
+  const signIn=document.getElementById('submitSignIn');
 
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  signIn.addEventListener('click', (event)=>{
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const auth = getAuth();
+
+    signInWithEmailAndPassword(auth, email, password) 
+      .then((userCredential)=>{
+        showMessage('Вы вошли в аккаунт', 'signInMessage');
         const user = userCredential.user;
-
-        await setDoc(doc(db, "users", user.uid), {
-          username: username,
-          email: email,
-          createdAt: new Date().toISOString()
-        });
-
-        alert('Регистрация успешна!');
-        window.location.href = 'privacy.html';
-      } catch (error) {
-        alert(error.message);
-      }
+        localStorage.setItem('LoggedInUserId', user.uid);
+        window.location.href="index.html";
+      })
+      .catch((error)=>{
+        const errorCode = error.code;
+        if(errorCode=='auth/invalid') {
+          showMessage('Incorrect Email or Password', 'signInMessage');
+        }
+        else {
+          showMessage('Аккаунт не существует', 'signInMessage');
+        }
+      })
     });
-  }
-
-  if (registerForm && window.location.pathname.includes('privacy.html')) {
-    registerForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = document.querySelector('#email').value;
-      const password = document.querySelector('#password').value;
-  
-      signInWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          alert('Вы успешно вошли!');
-          window.location.href = 'index.html';
-        })
-        .catch((error) => {
-          alert(error.message);
-        });
-    });
-  }
-

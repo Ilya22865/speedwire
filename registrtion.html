@@ -17,7 +17,7 @@
     <div class="main-content">
         <header class="header">
         
-            <h1 class="logo">SPEEDWIRE RATING</h1>
+            <h1 class="logo"><a href="registrtion.html" style="text-decoration: none; color: #757575;">SPEEDWIRE RATING</a></h1>
             <section class="hambrg">
                 <div class="hamburger" id="hamburger">
                     <span class="hamburger-line"></span>
@@ -37,6 +37,7 @@
         <div class="auth-container">
             <h2>Регистрация</h2>
             <form class="auth-form">
+            <div id="signUpMessage" class="messageDiv" style="display: none;"></div>
               <label for="username">Имя пользователя</label>
               <input type="text" id="username" placeholder="Придумайте логин">
           
@@ -45,16 +46,13 @@
           
               <label for="password">Пароль</label>
               <input type="password" id="password" placeholder="Введите пароль">
-          
-              <label for="confirm-password">Повторите пароль</label>
-              <input type="password" id="confirm-password" placeholder="Повторите пароль">
-          
-              <button type="submit" class="submit-btn">Зарегистрироваться</button>
+    
+              <button type="submit" class="submit-btn" id="submit">Зарегистрироваться</button>
           
               <p class="switch-auth">Уже есть аккаунт? <a href="privacy.html">Войти</a></p>
             </form>
           </div>
           
-          <script type="module" src="login.js"></script>
+          <script type="module" src="./registr.js"></script>
 </body>
 </html>
