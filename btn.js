@@ -11,7 +11,7 @@ onAuthStateChanged(auth, (user) => {
     if (signInButton) signInButton.style.display = "none";
     if (profileButton) profileButton.style.display = "inline-block";
   } else {
-    // Не вошёл — показываем "Войти", скрываем "Профиль"
+    // Не вошёл — показываем "Войти", скрываем "Профиль"  
     if (signInButton) signInButton.style.display = "inline-block";
     if (profileButton) profileButton.style.display = "none";
   }
