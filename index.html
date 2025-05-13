@@ -30,7 +30,7 @@
             <div class="nav-container">
                 <a href="otzivi.html">Отзывы владельцев</a>
                 <a href="privacy.html">Войти</a>
-                <a href="profile.html" id="profileButton" style="display: none;">Профиль</a>
+
             </div>
         </nav>
         
@@ -101,6 +101,38 @@
             });
         });
     </script>
-     <script type="module" src="./btn.js"></script>
+    <script type="module">
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+  const auth = getAuth();
+  const authLink = document.getElementById('authLink');
+  const profileButton = document.getElementById('profileButton');
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // Войти -> Выйти
+      authLink.textContent = "Выйти";
+      authLink.removeAttribute('href');
+      profileButton.style.display = "inline";
+
+      authLink.onclick = (e) => {
+        e.preventDefault();
+        signOut(auth).then(() => {
+          localStorage.removeItem('LoggedInUserId');
+          window.location.href = "index.html";
+        });
+      };
+
+    } else {
+      // Выйти -> Войти
+      authLink.textContent = "Войти";
+      authLink.setAttribute('href', 'privacy.html');
+      profileButton.style.display = "none";
+      authLink.onclick = null;
+    }
+  });
+</script>
+
+
 </body>
 </html>
